@@ -1,0 +1,395 @@
+/* --- Global Overrides & Configuration --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+    color: #8c8c8c;
+    line-height: 1.6;
+    font-size: 13px; /* Reduced to match smaller text size profile in screenshot */
+}
+
+.container {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* --- Header & Navigation Bar Framework --- */
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+}
+
+.nav-logo {
+    color: #009999;
+    font-size: 20px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+}
+
+.nav-item {
+    color: #666666;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 6px 4px;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-item:hover, .nav-item.active {
+    color: #009999;
+    border-bottom: 2px solid #009999;
+}
+
+/* --- Hero Banner Section (Using Local Image Path Framework) --- */
+.hero-banner {
+    position: relative;
+    height: 180px; /* Reduced vertical scale matching the screenshot height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.15); /* Soft tint layer */
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 460px;
+    padding: 0 20px;
+}
+
+.search-form {
+    display: flex;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 10px 16px;
+    border: 1px solid #e1e1e1;
+    border-right: none;
+    font-size: 14px;
+    outline: none;
+    color: #666666;
+}
+
+.search-btn {
+    background-color: #009999;
+    color: #ffffff;
+    border: none;
+    padding: 0 18px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.search-btn:hover {
+    background-color: #007777;
+}
+
+/* --- Headings Control Area --- */
+.main-content {
+    padding: 40px 24px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.section-title {
+    color: #009999;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.pagination-info {
+    color: #009999;
+    font-size: 11px;
+}
+
+.page-num {
+    border: 1px solid #dcdcdc;
+    padding: 2px 6px;
+    color: #8c8c8c;
+    background: #ffffff;
+    font-size: 11px;
+    margin: 0 2px;
+}
+
+/* --- Precise 4-Column Layout Grid System --- */
+.photo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px; 
+    width: 100%;
+}
+
+.photo-card {
+    flex: 0 0 calc(25% - 18px);
+    background-color: #ffffff;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Card Image and CLOCKS Hover Architecture --- */
+.card-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    cursor: pointer;
+}
+
+.card-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Matte translucent grey overlay to match CLOCKS card preview */
+.card-hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(60, 64, 67, 0.65); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+    z-index: 2;
+    border: 1.5px solid #ffffff; /* Inner framing outline matched to screenshot image */
+    box-sizing: border-box;
+}
+
+/* Clean, non-bordered transparent background typography */
+.view-text-badge {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    pointer-events: none;
+}
+
+/* --- Target Triggering Hover States --- */
+.photo-card:hover .card-hover-overlay {
+    opacity: 1;
+}
+
+/* --- Metadata Base Layout Ribbon --- */
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 2px; /* Tight padding profiles matching layout frame specs */
+    font-size: 11px;
+    color: #cccccc;
+    background-color: #ffffff;
+}
+
+.card-views {
+    color: #999999;
+}
+
+/* --- Pagination Elements Layout (Flexbox) --- */
+.pagination-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.page-btn {
+    padding: 8px 16px;
+    background-color: #ffffff;
+    color: #009999;
+    border-radius: 2px;
+    font-weight: 500;
+    font-size: 13px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.page-btn.active, .page-btn:hover:not(.disabled) {
+    background-color: #009999;
+    color: #ffffff;
+}
+
+.page-btn.disabled {
+    color: #cccccc;
+    cursor: not-allowed;
+    pointer-events: none;
+    background-color: #f5f5f5;
+}
+
+/* --- Footer Area Specifications --- */
+.site-footer {
+    background-color: #1A1A1A;
+    color: #999999;
+    padding: 50px 0 20px;
+    margin-top: 60px;
+    width: 100%;
+    font-size: 12px;
+}
+
+.footer-flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 240px;
+}
+
+.footer-column h3 {
+    color: #009999;
+    font-size: 16px;
+    margin-bottom: 16px;
+    font-weight: 400;
+}
+
+.footer-column p {
+    line-height: 1.6;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    color: #999999;
+}
+
+.footer-column ul li a:hover {
+    color: #ffffff;
+}
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icons a {
+    width: 36px;
+    height: 36px;
+    background-color: #262626;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 14px;
+}
+
+.social-icons a:hover {
+    background-color: #009999;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #262626;
+    color: #666666;
+}
+
+/* --- Responsive Layout Breakpoints --- */
+@media (max-width: 1200px) {
+    .photo-card {
+        flex: 0 0 calc(33.333% - 16px);
+    }
+}
+
+@media (max-width: 902px) {
+    .photo-card {
+        flex: 0 0 calc(50% - 12px);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+        gap: 12px;
+    }
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .pagination-container {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 540px) {
+    .photo-card {
+        flex: 0 0 100%;
+    }
+}
